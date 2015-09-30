@@ -3,6 +3,7 @@ package com.hat.testintent;
 import android.app.Activity;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -23,6 +24,12 @@ public class ActivityOther extends Activity {
             case CLIPBOARD:
                 ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 tv.setText(cm.getText().toString());
+                break;
+            case INTENT:
+                Intent intent = getIntent();
+                String name = intent.getStringExtra("name");
+                int age = intent.getIntExtra("age", 0);
+                tv.setText(name + ", " + age);
                 break;
         }
     }

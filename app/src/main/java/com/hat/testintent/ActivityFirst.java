@@ -36,6 +36,15 @@ public class ActivityFirst extends Activity{
                         startActivity(intent);
                     }
                         break;
+
+                    case INTENT:
+                    {
+                        Intent intent = new Intent(ActivityFirst.this, ActivityOther.class);
+                        intent.putExtra("name", "无心法师");
+                        intent.putExtra("age", 1000);
+                        startActivity(intent);
+                    }
+                    break;
                 }
 
             }

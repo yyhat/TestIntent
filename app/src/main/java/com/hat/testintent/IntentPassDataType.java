@@ -5,6 +5,7 @@ package com.hat.testintent;
  */
 public enum IntentPassDataType {
     APPLICATION,
-    CLIPBOARD
+    CLIPBOARD,
+    INTENT
 }
 
