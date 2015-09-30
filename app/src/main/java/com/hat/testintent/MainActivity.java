@@ -6,22 +6,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class MainActivity extends Activity {
 
+    public static IntentPassDataType mPassType = IntentPassDataType.APPLICATION;
+
+    String[] mVal = new String[] {"Intent全局传递数据", "Intent剪切板传递数据"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btn = (Button)findViewById(R.id.id_button);
-        btn.setOnClickListener(new View.OnClickListener() {
+        ListView mListView =(ListView)findViewById(R.id.listView);
+        mListView.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,mVal));
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                MyApp app = (MyApp)getApplication();
-                app.setName("Intent全局传送数据：" + 12345);
-                Intent intent = new Intent(MainActivity.this, ActivityOther.class);
-                startActivity(intent);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    mPassType = IntentPassDataType.values()[position];
+                    Intent intent = new Intent(MainActivity.this, ActivityFirst.class);
+                    startActivity(intent);
             }
         });
     }

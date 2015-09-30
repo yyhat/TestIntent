@@ -1,6 +1,8 @@
 package com.hat.testintent;
 
 import android.app.Activity;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -13,7 +15,15 @@ public class ActivityOther extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other);
         TextView tv = (TextView)findViewById(R.id.id_textView);
-        MyApp app = (MyApp)getApplication();
-        tv.setText(app.getName());
+        switch (MainActivity.mPassType) {
+            case APPLICATION:
+                MyApp app = (MyApp) getApplication();
+                tv.setText(app.getName());
+                break;
+            case CLIPBOARD:
+                ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                tv.setText(cm.getText().toString());
+                break;
+        }
     }
 }
