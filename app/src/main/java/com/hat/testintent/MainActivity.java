@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
 
     public static IntentPassDataType mPassType = IntentPassDataType.APPLICATION;
 
-    String[] mVal = new String[] {"Intent全局传递数据", "Intent剪切板传递数据", "Intent传递数据"};
+    String[] mVal = new String[] {"Intent全局传递数据", "Intent剪切板传递数据", "Intent传递数据", "练习Intent返回结果"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
