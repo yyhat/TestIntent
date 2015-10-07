@@ -11,27 +11,67 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.hat.testjson.ActivityDomJson;
+import com.hat.testjson.ActivityPullJson;
+import com.hat.testjson.ActivitySaxJson;
+
 import java.util.List;
 
 public class MainActivity extends Activity {
 
     public static IntentPassDataType mPassType = IntentPassDataType.APPLICATION;
 
-    String[] mVal = new String[] {"Intent全局传递数据", "Intent剪切板传递数据", "Intent传递数据", "练习Intent返回结果"};
+    String[] mVal = new String[]{
+            "Intent全局传递数据",
+            "Intent剪切板传递数据",
+            "Intent传递数据",
+            "练习Intent返回结果",
+            "Dom解析XML",
+            "Sax解析XML",
+            "Pull解析XML",
+            "Android json解析JSON",
+            "GSON解析JSON"
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView mListView =(ListView)findViewById(R.id.listView);
-        mListView.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,mVal));
+        ListView mListView = (ListView) findViewById(R.id.listView);
+        mListView.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, mVal));
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    mPassType = IntentPassDataType.values()[position];
-                    Intent intent = new Intent(MainActivity.this, ActivityFirst.class);
-                    startActivity(intent);
-            }
-        });
+                                             @Override
+                                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                                 switch (position) {
+                                                     case 0:
+                                                     case 1:
+                                                     case 2:
+                                                     case 3: {
+                                                         mPassType = IntentPassDataType.values()[position];
+                                                         Intent intent = new Intent(MainActivity.this, ActivityFirst.class);
+                                                         startActivity(intent);
+                                                         break;
+                                                     }
+                                                     case 4: {
+                                                         Intent intent = new Intent(MainActivity.this, ActivityDomJson.class);
+                                                         startActivity(intent);
+                                                     }
+                                                     break;
+                                                     case 5: {
+                                                         Intent intent = new Intent(MainActivity.this, ActivitySaxJson.class);
+                                                         startActivity(intent);
+                                                     }
+                                                     break;
+                                                     case 6: {
+                                                         Intent intent = new Intent(MainActivity.this, ActivityPullJson.class);
+                                                         startActivity(intent);
+                                                     }
+                                                     break;
+                                                 }
+                                             }
+                                         }
+
+        );
     }
 
     @Override
