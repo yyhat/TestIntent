@@ -8,14 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
-import com.hat.testjson.ActivityDomJson;
-import com.hat.testjson.ActivityPullJson;
-import com.hat.testjson.ActivitySaxJson;
-
-import java.util.List;
+import com.hat.testjson.ActivityDomXml;
+import com.hat.testjson.ActivityGson;
+import com.hat.testjson.ActivityJson;
+import com.hat.testjson.ActivityPullXml;
+import com.hat.testjson.ActivitySaxXml;
 
 public class MainActivity extends Activity {
 
@@ -53,17 +52,27 @@ public class MainActivity extends Activity {
                                                          break;
                                                      }
                                                      case 4: {
-                                                         Intent intent = new Intent(MainActivity.this, ActivityDomJson.class);
+                                                         Intent intent = new Intent(MainActivity.this, ActivityDomXml.class);
                                                          startActivity(intent);
                                                      }
                                                      break;
                                                      case 5: {
-                                                         Intent intent = new Intent(MainActivity.this, ActivitySaxJson.class);
+                                                         Intent intent = new Intent(MainActivity.this, ActivitySaxXml.class);
                                                          startActivity(intent);
                                                      }
                                                      break;
                                                      case 6: {
-                                                         Intent intent = new Intent(MainActivity.this, ActivityPullJson.class);
+                                                         Intent intent = new Intent(MainActivity.this, ActivityPullXml.class);
+                                                         startActivity(intent);
+                                                     }
+                                                     break;
+                                                     case 7: {
+                                                         Intent intent = new Intent(MainActivity.this, ActivityJson.class);
+                                                         startActivity(intent);
+                                                     }
+                                                     break;
+                                                     case 8: {
+                                                         Intent intent = new Intent(MainActivity.this, ActivityGson.class);
                                                          startActivity(intent);
                                                      }
                                                      break;

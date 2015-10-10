@@ -19,9 +19,11 @@
         </activity>
         <activity android:name=".ActivityOther"/>
         <activity android:name=".ActivityFirst"/>
-        <activity android:name="com.hat.testjson.ActivityDomJson"/>
-        <activity android:name="com.hat.testjson.ActivitySaxJson"/>
-        <activity android:name="com.hat.testjson.ActivityPullJson"/>
+        <activity android:name="com.hat.testjson.ActivityDomXml"/>
+        <activity android:name="com.hat.testjson.ActivitySaxXml"/>
+        <activity android:name="com.hat.testjson.ActivityPullXml"/>
+        <activity android:name="com.hat.testjson.ActivityJson"/>
+        <activity android:name="com.hat.testjson.ActivityGson"/>
     </application>
 
 </manifest>
