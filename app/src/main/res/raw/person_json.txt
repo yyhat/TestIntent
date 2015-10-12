@@ -1,7 +1,4 @@
-{
-	"person":
-	[
+[
 		{"id":1, "name":"小罗", "age":21},
 		{"id":2, "name":"android", "age":15}
-	]
-}
+]

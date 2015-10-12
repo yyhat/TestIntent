@@ -4,37 +4,45 @@ package com.hat.testjson;
  * Created by anting.hu on 2015/10/7.
  */
 public class Person {
-    public int getAge() {
-        return Age;
-    }
 
-    public void setAge(int age) {
-        Age = age;
-    }
 
-    public int getId() {
-        return Id;
-    }
+    /**
+     * id : 1
+     * name : 小罗
+     * age : 21
+     */
 
-    public void setId(int id) {
-        Id = id;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
-    public int Id;
-    public String Name;
-    public int Age;
+    private int id;
+    private String name;
+    private int age;
 
     @Override
     public String toString() {
 
-        return "id: " + Id + ", Name: " + Name + ", Age: " + Age;
+        return "id: " + id + ", Name: " + name + ", Age: " + age;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 }

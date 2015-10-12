@@ -24,7 +24,7 @@ public class ActivityGson extends Activity {
         setContentView(R.layout.activity_dom);
         mTextView = (TextView)findViewById(R.id.textView);
 
-        List<Person> persons = GsonParserUtils.getPersons(UtilRaw.readFile(ActivityGson.this, R.raw.person_json), Person.class);
+        List<Person> persons= GsonParserUtils.getPersons(UtilRaw.readFile(ActivityGson.this, R.raw.person_json), Person[].class);
         String content="";
         for(int i=0; i<persons.size(); i++)
         {

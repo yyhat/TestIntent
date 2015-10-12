@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.hat.testjson.Person;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,19 +13,26 @@ import java.util.List;
  */
 public class GsonParserUtils {
 
-    public static Person getPerson(String jsonData, Class<Person> cls)
+    public static <T> T getPerson(String jsonData, Class<T> cls)
     {
-        Person person = null;
+        T person = null;
         Gson gson = new Gson();
         person = gson.fromJson(jsonData, cls);
         return person;
     }
 
-    public static List<Person> getPersons(String jsonData, Class<Person> cls)
+    //使用泛型处理的时候，打印会报错
+//    public static  List<Person> getPersons(String jsonData, Class<Person> cls)
+//    {
+//        List<Person> persons = new ArrayList<Person>();
+//        Gson gson = new Gson();
+//        persons = gson.fromJson(jsonData, new TypeToken<List<Person>>(){}.getType());
+//        return persons;
+//    }
+
+    public static <T> List<T> getPersons(String jsonData, Class<T[]> cls)
     {
-        List<Person> persons = new ArrayList<Person>();
-        Gson gson = new Gson();
-        persons = gson.fromJson(jsonData, new TypeToken<List<Person>>(){}.getType());
-        return persons;
+        T[] persons = new Gson().fromJson(jsonData, cls); //不可以写成 new TypeToken<T[]>(){}.getType());
+        return Arrays.asList(persons);
     }
 }
